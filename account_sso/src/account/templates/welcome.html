@@ -1,0 +1,26 @@
+<html>
+
+    <head>
+        <title>Welcome Back</title>
+    </head>
+
+    <body>
+        <div>
+            <h2>Welcome Back, {{ username }}.</h2>
+            {% if jump_url %}
+                <div>
+                    <script type="text/javascript">
+                        setTimeout("location.href = '{{ jump_url }}';", 3000);
+                    </script>
+                </div>
+                <h4>It will auto jump to login homepage after 3 seconds.</h4>
+            {% else %}
+                <h3>{{ msg }}By <a href="{% url 'profile_msg' %}">Click Here.</a></h3>
+            {% endif %}
+
+        </div>
+    </body>
+
+
+</html>
+
