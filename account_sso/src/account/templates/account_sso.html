@@ -1,38 +1,34 @@
 <html>
 
     <head>
-        <title>Log In</title>
+        <title>OpenID - Log In</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
     </head>
 
     <body>
         <script type="text/javascript">
-            // alert( document.URL );
-            // alert(window.location.href);
-            // window.alert("btwx");
-
-            // function openPopupWindow(openid) {
-            //       document.getElementById('ops').style.display = 'none';
-            //       document.getElementById('bucket').innerHTML = 'Signing you in <img src="/static/spinner.gif"/>';
-            //       window.open('/openid_begin?openid_identifier='+encodeURIComponent(openid), 'openid_popup', 'width=790,height=580');
-            // }
-
-
             function openwin_company () {
-                // body...
                 window.open("https://www.google.com/accounts/o8/ud?hd=smalltreemedia.com&openid.ns=http://specs.openid.net/auth/2.0&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:8000/accounts/popreturn&openid.realm=http://localhost:8000/accounts/&openid.assoc_handle=ABSmpf6DNMw&openid.mode=checkid_setup&openid.ui.ns=http://specs.openid.net/extensions/ui/1.0&openid.ui.mode=popup&openid.ui.icon=true&openid.ns.ax=http://openid.net/srv/ax/1.0&openid.ax.mode=fetch_request&openid.ax.type.email=http://axschema.org/contact/email&openid.ax.type.firstname=http://axschema.org/namePerson/first&openid.ax.type.lastname=http://axschema.org/namePerson/last&openid.ax.required=email,firstname,lastname", 'openid_popup', 'width=650,height=580');
             }
 
             function openwin_gmail () {
-                // body...
                 window.open("https://www.google.com/accounts/o8/ud?openid.ns=http://specs.openid.net/auth/2.0&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:8000/accounts/popreturn&openid.realm=http://localhost:8000/accounts/&openid.assoc_handle=ABSmpf6DNMw&openid.mode=checkid_setup&openid.ui.ns=http://specs.openid.net/extensions/ui/1.0&openid.ui.mode=popup&openid.ui.icon=true&openid.ns.ax=http://openid.net/srv/ax/1.0&openid.ax.mode=fetch_request&openid.ax.type.email=http://axschema.org/contact/email&openid.ax.type.firstname=http://axschema.org/namePerson/first&openid.ax.type.lastname=http://axschema.org/namePerson/last&openid.ax.required=email,firstname,lastname", 'openid_popup', 'width=650,height=580');
             }
         </script>
         
         <div>
-            <p>Choose a type to Login</p>
-            <p><a href="javascript:openwin_company();">Sign In with My Company Accounts</a></p>
-            <!-- <p><img src="http://www.google.com/favicon.ico" style="border:none;"/><a href="{% url 'account_sso' domain='gmail' %}">Sign In with My GMail Accounts</a></p> -->
-            <p><img src="http://www.google.com/favicon.ico" style="border:none;"/><a href="javascript:openwin_gmail();">Sign In with My GMail Accounts</a></p>
+
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <p class="brand" >Choose a type to Login</p>
+                </div>
+            </div>
+
+            <div class="well">
+                <p><a href="javascript:openwin_company();">Sign In with My Company Accounts</a></p>
+                <p><img src="http://www.google.com/favicon.ico" style="border:none;"/><a href="javascript:openwin_gmail();">Sign In with My GMail Accounts</a></p>
+            </div>
+
 
         </div>
     </body>

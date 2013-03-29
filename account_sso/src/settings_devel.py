@@ -18,8 +18,8 @@ DATABASES = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'your email'
-EMAIL_HOST_PASSWORD = 'your pass'
+EMAIL_HOST_USER = 'fuwanhong@smalltreemedia.com'
+EMAIL_HOST_PASSWORD = 'kikifuwh'
 EMAIL_SUBJECT_PREFIX = '[Approve Permissions]'
 
 
@@ -27,7 +27,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Wo xxx', 'sysadmin email'),
+    ('Wo xxx', 'fuwanhong@smalltreemedia.com'),
 )
 
 MANAGERS = ADMINS
@@ -46,7 +46,8 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static'
+# STATIC_ROOT = '/usr/local/lib/python2.7/dist-packages/django/contrib/admin/static'
+STATIC_ROOT = project_root + '/static'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -54,14 +55,13 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # os.path.abspath('/apps/account/templates'),
+    # os.path.abspath('/account/templates'),
     # '',
 )
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.abspath('/apps/account/templates'),
-)
+# TEMPLATE_DIRS = (
+#     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+#     # Always use forward slashes, even on Windows.
+#     # Don't forget to use absolute paths, not relative paths.
+# )
 

@@ -2,19 +2,12 @@
 
     <head>
         <title>OpenId Login</title>
-<!--    {% load admin_static %} -->
-<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
 
         <script type="text/javascript">
             function handleOpenIDResponse () {
                 var url = window.location.href;
                 var url_callback = url.replace(/popreturn/g, 'profile');
-                // alert(url_callback);
-                // $.ajax({
-                //       url: url_callback,
-                //     });
                 window.opener.location.href = url_callback;
-                alert('send ok');
             }
         </script>
 

@@ -31,13 +31,14 @@ def login_page(request):
             context_instance=RequestContext(request))
 
 
-def openid_login(request, domain):
-    if domain == 'company':
-        url = 'https://www.google.com/accounts/o8/ud?hd=smalltreemedia.com&openid.ns=http://specs.openid.net/auth/2.0&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:8000/accounts/profile&openid.realm=http://localhost:8000/accounts/&openid.assoc_handle=ABSmpf6DNMw&openid.mode=checkid_setup&openid.ui.ns=http://specs.openid.net/extensions/ui/1.0&openid.ui.mode=popup&openid.ui.icon=true&openid.ns.ax=http://openid.net/srv/ax/1.0&openid.ax.mode=fetch_request&openid.ax.type.email=http://axschema.org/contact/email&openid.ax.type.firstname=http://axschema.org/namePerson/first&openid.ax.type.lastname=http://axschema.org/namePerson/last&openid.ax.required=email,firstname,lastname'
-    else:
-        url = 'https://www.google.com/accounts/o8/ud?openid.ns=http://specs.openid.net/auth/2.0&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:8000/accounts/profile&openid.realm=http://localhost:8000/accounts/&openid.assoc_handle=ABSmpf6DNMw&openid.mode=checkid_setup&openid.ui.ns=http://specs.openid.net/extensions/ui/1.0&openid.ui.mode=popup&openid.ui.icon=true&openid.ns.ax=http://openid.net/srv/ax/1.0&openid.ax.mode=fetch_request&openid.ax.type.email=http://axschema.org/contact/email&openid.ax.type.firstname=http://axschema.org/namePerson/first&openid.ax.type.lastname=http://axschema.org/namePerson/last&openid.ax.required=email,firstname,lastname'
+# def openid_login(request, domain):
+# ''' Leave for Not PopUp Window openid login'''
+#     if domain == 'company':
+#         url = 'https://www.google.com/accounts/o8/ud?hd=smalltreemedia.com&openid.ns=http://specs.openid.net/auth/2.0&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:8000/accounts/profile&openid.realm=http://localhost:8000/accounts/&openid.assoc_handle=ABSmpf6DNMw&openid.mode=checkid_setup&openid.ui.ns=http://specs.openid.net/extensions/ui/1.0&openid.ui.mode=popup&openid.ui.icon=true&openid.ns.ax=http://openid.net/srv/ax/1.0&openid.ax.mode=fetch_request&openid.ax.type.email=http://axschema.org/contact/email&openid.ax.type.firstname=http://axschema.org/namePerson/first&openid.ax.type.lastname=http://axschema.org/namePerson/last&openid.ax.required=email,firstname,lastname'
+#     else:
+#         url = 'https://www.google.com/accounts/o8/ud?openid.ns=http://specs.openid.net/auth/2.0&openid.ns.pape=http://specs.openid.net/extensions/pape/1.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:8000/accounts/profile&openid.realm=http://localhost:8000/accounts/&openid.assoc_handle=ABSmpf6DNMw&openid.mode=checkid_setup&openid.ui.ns=http://specs.openid.net/extensions/ui/1.0&openid.ui.mode=popup&openid.ui.icon=true&openid.ns.ax=http://openid.net/srv/ax/1.0&openid.ax.mode=fetch_request&openid.ax.type.email=http://axschema.org/contact/email&openid.ax.type.firstname=http://axschema.org/namePerson/first&openid.ax.type.lastname=http://axschema.org/namePerson/last&openid.ax.required=email,firstname,lastname'
 
-    return HttpResponseRedirect(url)
+#     return HttpResponseRedirect(url)
 
 
 def popup_login_return(request):
@@ -60,7 +61,6 @@ def show_profile(request):
         username = re.sub('\.', '', username)
         username = username.partition('+')[0]
         request.session["username"] = username
-        print "items(): ", request.session.items()
 
         if User.objects.filter(username=username).exists():
             if User.objects.filter(username=username, email=email).exists():
@@ -115,6 +115,5 @@ def leave_msg(request):
         active_link = '<p>Permission Assgin Link Address: <a href="http://127.0.0.1:8000/admin/auth/user/%s">Assgin Permission</a></p>' % user.id
         mail_admins('A New guy is Coming', 'why message here not be sent', html_message = msg+content+active_link)
 
-        # return HttpResponseRedirect(next)
         return HttpResponse('email & comment success')
 
